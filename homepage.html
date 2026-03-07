@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="shortcut icon"
+      href="./assets/assignment-5.jpg"
+      type="image/x-icon"
+    />
+
+    <!-- tailwind and daisy ui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+
+    <!-- cnd -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+  </head>
+
+
+  <body class="bg-[#E9E9E9]">
+    <section class=" py-6 bg-[#F8FAFC] mb-16">
+        <div class="flex justify-between items-center mx-20">
+                    <div class="flex items-center gap-2.5">
+                        <img class="w-10 h-10" src="./assets/github-logo.png" alt="" />
+                        <h2 class="font-semibold text-[1.8rem]">GitHub Issues Tracker</h2>
+                    </div>
+
+            <div class="flex gap-3">
+            <label class="input">
+                <svg
+                class="h-[1em] opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                >
+                <g
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="2.5"
+                    fill="none"
+                    stroke="currentColor"
+                >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                </g>
+                </svg>
+                <input type="search" required placeholder="Search" />
+            </label>
+
+            <button class="btn btn-primary text-[#FFFFFF]"><span><i class="fa-solid fa-plus"></i></span>Primary</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto bg-[#FFFFFF] p-6 shadow-2xl rounded-[10px] mb-4">
+        <div>
+            <button class="btn btn-primary w-[120px] h-10">All</button>
+            <button class="btn w-[120px] h-10">Open</button>
+            <button class="btn w-[120px] h-10">Closed</button>
+        </div>
+    </section>
+
+    <section class="container mx-auto bg-[#FFFFFF] rounded-[10px]">
+        <div class=" p-5 shadow ">
+            <div class="flex justify-between items-center">
+            <div class="flex  items-center gap-3">
+                <img src="./assets/Aperture.png" alt="">
+                <div>
+                    <h2 class="font-semibold text-[1.25rem] text-[#1F2937]">50 Issues</h2>
+                    <p class="text-[#64748B]">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="flex  items-center gap-3">
+                <img src="./assets/Open-Status.png" alt="">
+                <p class="font-medium">Open</p>
+                <img src="./assets/Closed- Status .png" alt="">
+                <p class="font-medium">Closed</p>
+            </div>
+        </div>
+        </div>
+
+
+        <div id="card-container" class="p-6 bg-[#FBFBFB] grid grid-cols-4 gap-4">
+
+            <!-- card-container -->
+            <!-- <div class="card bg-base-100 shadow-sm p-4 border-t-4 border-[#00A96E]">
+                    <div class="flex justify-between mb-3">
+                        <img class="w-6 h-6" src="./assets/Open-Status.png" alt="">
+                        <span class=" bg-[#ef44441c] text-[#EF4444] px-6 py-1 rounded-[50px]">HIGH</span>
+                    </div>
+                    <div class="mb-3">
+                        <h2 class="font-semibold text-[1.25rem] text-[#1F2937]">Fix navigation menu on mobile devices</h2>
+                        <p class="text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
+                    </div>
+                    <div class="mb-3">
+                        <div class="badge badge-soft bg-[#ef44441c] text-[#EF4444] px-4 py-3.5 font-medium"><span><img class="w-3" src="./assets/Vector.png" alt=""></span>BUG</div>
+
+                        <div class="badge badge-soft bg-[#fde68a59] text-[#D97706] px-4 py-3.5 font-medium"><span><img class="w-3" src="./assets/Vector (1).png" alt=""></span>HELP WANTED</div>
+                    </div>
+
+                    <div class="border border-gray-200 w-full">
+
+                    </div>
+                    <div class="mt-3 flex justify-between">
+                        <div>
+                            <p>#1by john_doe</p>
+                            <p>Assignee:joe smith</p>
+                        </div>
+                        <div class="text-right">
+                            <p>1/16/2026</p>
+                            <p>Update:1/16/2026</p>
+                        </div>
+                    </div>
+                    
+            </div> -->
+                    
+        </div>
+
+    </section>
+
+
+    <script src="./script/issuload.js"></script>
+  </body>
+</html>

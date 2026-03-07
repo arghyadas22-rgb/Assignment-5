@@ -17,7 +17,9 @@ document.getElementById("login-btn").addEventListener("click" , function(){
     if(userAdmin === "admin" && pinNumber === "admin123"){
 
         // 4...true alert -- 
-        alert("login Success")
+        alert("login Success");
+
+        window.location.assign("homepage.html")
     }else{
 
         // 5... false >> alart >> return
