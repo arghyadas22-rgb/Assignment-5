@@ -2,6 +2,7 @@ console.log("Hello world")
 
 const cardcontainer = document.getElementById("card-container");
 let allIssues =[];
+const spinner = document.getElementById("loading-spinner");
 
 
 
@@ -17,11 +18,16 @@ function updateTotalCount(issues) {
 // Load cards
 
 async function loadcard() {
+
+    spinner.classList.remove("hidden");
+
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     allIssues = data.data;
     displaycard(data.data);
     updateTotalCount(allIssues);
+
+    spinner.classList.add("hidden");
 }
 
 // Display cards function
@@ -89,20 +95,34 @@ const closedBtn = document.getElementById("closed-btn");
 
 
 allBtn.addEventListener("click", ()=> {
+    spinner.classList.remove("hidden");
+
     displaycard(allIssues);
     updateTotalCount(allIssues);
+
+    spinner.classList.add("hidden");
 })
 
 openBtn.addEventListener("click", ()=> {
+
+    spinner.classList.remove("hidden");
+
     const openIssues = allIssues.filter(issue => issue.status === "open");
     displaycard(openIssues);
     updateTotalCount(openIssues);
+
+    spinner.classList.add("hidden");
 })
 
 closedBtn.addEventListener("click", ()=> {
+
+    spinner.classList.remove("hidden");
+
     const closedIssues = allIssues.filter(issue => issue.status === "closed");
     displaycard(closedIssues);
     updateTotalCount(closedIssues);
+
+    spinner.classList.add("hidden");
 })
 
 

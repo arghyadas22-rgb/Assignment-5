@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>GitHub Homepage</title>
 
     <link
       rel="shortcut icon"
-      href="./assets/assignment-5.jpg"
+      href="./assets/github-logo.png"
       type="image/x-icon"
     />
 
@@ -65,7 +65,7 @@
                 <input id="search-box" type="search" required placeholder="Search" />
             </label>
 
-            <button id="search-btn" class="btn btn-primary text-[#FFFFFF]"><span><i class="fa-solid fa-plus"></i></span>Primary</button>
+            <button id="search-btn" class="btn btn-primary text-[#FFFFFF]"><span><i class="fa-solid fa-plus"></i></span>Search</button>
             </div>
         </div>
     </section>
@@ -91,6 +91,8 @@
                     <p class="text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
+
+            
             <div class="flex  items-center gap-3">
                 <img src="./assets/Open-Status.png" alt="">
                 <p class="font-medium">Open</p>
@@ -100,9 +102,20 @@
         </div>
         </div>
 
+        <!-- loading spinner -->
+
+            <div id="loading-spinner" class="flex justify-center items-center">
+                <div class="flex w-52 flex-col gap-4 m-3">
+                <div class="skeleton h-32 w-full"></div>
+                <div class="skeleton h-4 w-28"></div>
+                <div class="skeleton h-4 w-full"></div>
+                <div class="skeleton h-4 w-full"></div>
+            </div>
+            </div>
 
         <div id="card-container" class="p-6 bg-[#FBFBFB] grid grid-cols-4 gap-4">
 
+            
             <!-- card-container -->
             <!-- <div class="card bg-base-100 shadow-sm p-4 border-t-4 border-[#00A96E]">
                     <div class="flex justify-between mb-3">
