@@ -1,22 +1,34 @@
 console.log("Hello world")
 
 const cardcontainer = document.getElementById("card-container");
+let allIssues =[];
 
 
 
+//  Update total function
 
+function updateTotalCount(issues) {
+    const total = document.getElementById("total-issues-count");
+    total.innerText = issues.length;
+}
+
+
+
+// Load cards
 
 async function loadcard() {
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     allIssues = data.data;
     displaycard(data.data);
+    updateTotalCount(allIssues);
 }
+
+// Display cards function
 
 function displaycard(issues){
     cardcontainer.innerHTML = "";
     issues.forEach(card => {
-        console.log(card);
 
     const badges = card.labels.map(label => {
         return `<div class="badge badge-soft bg-[#ef44441c] text-[#EF4444] px-4 py-3.5 font-medium">
@@ -73,18 +85,24 @@ const allBtn = document.getElementById("all-btn");
 const openBtn = document.getElementById("open-btn");
 const closedBtn = document.getElementById("closed-btn");
 
+// Filter buttons
+
+
 allBtn.addEventListener("click", ()=> {
     displaycard(allIssues);
+    updateTotalCount(allIssues);
 })
 
 openBtn.addEventListener("click", ()=> {
     const openIssues = allIssues.filter(issue => issue.status === "open");
     displaycard(openIssues);
+    updateTotalCount(openIssues);
 })
 
 closedBtn.addEventListener("click", ()=> {
     const closedIssues = allIssues.filter(issue => issue.status === "closed");
-    displaycard(closedIssues);;
+    displaycard(closedIssues);
+    updateTotalCount(closedIssues);
 })
 
 
@@ -92,9 +110,38 @@ const buttons = document.querySelectorAll(".filter-btn");
 
 buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-        buttons.forEach(b => b.classList.remove("btn-primary"));
+        buttons.forEach(btnEl => btnEl.classList.remove("btn-primary"));
         btn.classList.add("btn-primary");
     });
+});
+
+
+
+// search button
+
+const searchBox =  document.getElementById("search-box");
+const searchBtn =  document.getElementById("search-btn");
+
+// search button click
+
+// some help from google
+
+searchBtn.addEventListener("click" , ()=>{
+    const query = searchBox.value
+
+    const filteredIssues = allIssues.filter(issue => 
+        issue.title.toLowerCase().includes(query) ||
+        issue.description.toLowerCase().includes(query) ||
+        issue.author.toLowerCase().includes(query)
+    );
+
+    displaycard(filteredIssues);
+    updateTotalCount(filteredIssues);
+})
+
+// if i click the keybord enter button it will be search help by google
+searchBox.addEventListener("keyup" , (el) => {
+    if(el.key === "Enter") searchBtn.click();
 });
 
 

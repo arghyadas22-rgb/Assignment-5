@@ -62,10 +62,10 @@
                     <path d="m21 21-4.3-4.3"></path>
                 </g>
                 </svg>
-                <input type="search" required placeholder="Search" />
+                <input id="search-box" type="search" required placeholder="Search" />
             </label>
 
-            <button class="btn btn-primary text-[#FFFFFF]"><span><i class="fa-solid fa-plus"></i></span>Primary</button>
+            <button id="search-btn" class="btn btn-primary text-[#FFFFFF]"><span><i class="fa-solid fa-plus"></i></span>Primary</button>
             </div>
         </div>
     </section>
@@ -84,7 +84,10 @@
             <div class="flex  items-center gap-3">
                 <img src="./assets/Aperture.png" alt="">
                 <div>
-                    <h2 class="font-semibold text-[1.25rem] text-[#1F2937]">50 Issues</h2>
+                    <h2 class="font-semibold text-[1.25rem] text-[#1F2937]">
+                        <span id="total-issues-count">50</span> Issues
+                    </h2>
+                    
                     <p class="text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
