@@ -1,4 +1,4 @@
-console.log("Hello world")
+
 
 const cardcontainer = document.getElementById("card-container");
 let allIssues =[];
@@ -61,8 +61,8 @@ function displaycard(issues){
                         <span class="${card.priority === 'high' ? 'bg-red-100 text-red-500' :card.priority === 'medium' ? 'bg-yellow-100 text-yellow-500' :'bg-gray-100 text-gray-500'}    bg-[#ef44441c] text-[#EF4444] px-6 py-1 rounded-[50px]">${card.priority}</span>
                     </div>
                     <div class="mb-3">
-                        <h2 class="font-semibold text-[1.25rem] text-[#1F2937] pb-2">${card.title}</h2>
-                        <p class="text-[#64748B] line-clamp-2">${card.description}</p>
+                        <h2 class="cursor-pointer font-semibold text-[1.25rem] text-[#1F2937] pb-2" onclick="opencardmodal(${card.id})">${card.title}</h2>
+                        <p class="text-[#64748B] line-clamp-2 cursor-pointer" onclick="opencardmodal(${card.id})">${card.description}</p>
                     </div>
                     <div class="mb-3 flex gap-2">
                         ${badges}
@@ -147,7 +147,7 @@ const searchBtn =  document.getElementById("search-btn");
 // some help from google
 
 searchBtn.addEventListener("click" , ()=>{
-    const query = searchBox.value
+    const query = searchBox.value.toLowerCase();
 
     const filteredIssues = allIssues.filter(issue => 
         issue.title.toLowerCase().includes(query) ||
@@ -163,6 +163,94 @@ searchBtn.addEventListener("click" , ()=>{
 searchBox.addEventListener("keyup" , (el) => {
     if(el.key === "Enter") searchBtn.click();
 });
+
+
+
+// popup show  $$ click on title and description
+
+const carddetailsmodal = document.getElementById("card-details-modal");
+
+async function opencardmodal(cardid) {
+
+  const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${cardid}`);
+  const data = await res.json();
+  const carddetails = data.data;
+
+    const cardds = carddetails.labels.map(label => {
+        return `<div class="badge badge-soft bg-[#ef44441c] text-[#EF4444] px-4 py-3.5 font-medium">
+            ${label}
+        </div>`;
+    }).join("");
+
+
+
+// i trying to use forEach loop but not working and then i help from google
+  
+  let existingModal = document.getElementById("card-details-modal");
+  if(existingModal) existingModal.remove();
+
+  // modal create
+  const allcarddetails = document.createElement("dialog");
+  allcarddetails.id = "card-details-modal";
+  allcarddetails.className = "modal rounded-[10px]";
+
+  allcarddetails.innerHTML = `
+    <div class="modal-box">
+      <div class="card bg-base-100 shadow-sm p-8 mx-auto">
+        <h2 class="font-bold text-[1.5rem] text-[#1F2937] mb-3">
+          ${carddetails.title || "No title"}
+        </h2>
+        <div class="flex gap-2 mb-6">
+          <div>
+            <button class="btn bg-[#00A96E] text-white rounded-[50px] focus:outline-none">
+              ${carddetails.status}
+            </button>
+          </div>
+          <div class="flex gap-2">
+            <p class="text-[#64748B]">
+              <span class="text-xl">●</span> Opened by ${carddetails.assignee || "N/A"}
+            </p>
+            <p class="text-[#64748B]">
+              <span class="text-xl">●</span> ${carddetails.createdAt || "N/A"}
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-6 flex gap-3">
+          ${cardds}
+          
+        </div>
+
+        <p class="mb-6 text-[#64748B] text-[1.25rem]">
+          ${carddetails.description || "No description"}
+        </p>
+
+        <div class="bg-[#f8fafc98] flex justify-between p-5 mb-6">
+          <div>
+            <h2 class="text-[#64748B]">Assignee:</h2>
+            <h2 class="text-[#1F2937] font-semibold">${carddetails.assignee || "N/A"}</h2>
+          </div>
+          <div class="flex flex-col gap-1">
+            <h2 class="text-[#64748B]">Priority:</h2>
+            <span class="bg-[#EF4444] text-white px-3 py-1 rounded-[50px] w-fit">
+              ${carddetails.priority || "N/A"}
+            </span>
+          </div>
+        </div>
+
+        <div class="flex justify-end">
+          <button class="btn btn-primary" onclick="document.getElementById('card-details-modal').close()">Close</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(allcarddetails);
+
+  // modal open
+  allcarddetails.showModal();
+}
+
 
 
 

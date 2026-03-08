@@ -27,97 +27,110 @@
       rel="stylesheet"
     />
 
-
     <!-- cnd -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
-
   <body class="bg-[#E9E9E9]">
-    <section class=" py-6 bg-[#F8FAFC] mb-16">
-        <div class="flex justify-between items-center mx-20">
-                    <div class="flex items-center gap-2.5">
-                        <img class="w-10 h-10" src="./assets/github-logo.png" alt="" />
-                        <h2 class="font-semibold text-[1.8rem]">GitHub Issues Tracker</h2>
-                    </div>
-
-            <div class="flex gap-3">
-            <label class="input">
-                <svg
-                class="h-[1em] opacity-50"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                >
-                <g
-                    stroke-linejoin="round"
-                    stroke-linecap="round"
-                    stroke-width="2.5"
-                    fill="none"
-                    stroke="currentColor"
-                >
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.3-4.3"></path>
-                </g>
-                </svg>
-                <input id="search-box" type="search" required placeholder="Search" />
-            </label>
-
-            <button id="search-btn" class="btn btn-primary text-[#FFFFFF]"><span><i class="fa-solid fa-plus"></i></span>Search</button>
-            </div>
+    <section class="py-6 bg-[#F8FAFC] mb-16">
+      <div class="flex justify-between items-center mx-20">
+        <div class="flex items-center gap-2.5">
+          <img class="w-10 h-10" src="./assets/github-logo.png" alt="" />
+          <h2 class="font-semibold text-[1.8rem]">GitHub Issues Tracker</h2>
         </div>
+
+        <div class="flex gap-3">
+          <label class="input">
+            <svg
+              class="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input
+              id="search-box"
+              type="search"
+              required
+              placeholder="Search"
+            />
+          </label>
+
+          <button id="search-btn" class="btn btn-primary text-[#FFFFFF]">
+            <span><i class="fa-solid fa-plus"></i></span>Search
+          </button>
+        </div>
+      </div>
     </section>
 
-    <section class="container mx-auto bg-[#FFFFFF] p-6 shadow-2xl rounded-[10px] mb-4">
-        <div>
-            <button id="all-btn" class="btn btn-primary filter-btn w-[120px] h-10">All</button>
-            <button id="open-btn" class="btn filter-btn w-[120px] h-10">Open</button>
-            <button id="closed-btn" class="btn filter-btn w-[120px] h-10">Closed</button>
-        </div>
+    <section
+      class="container mx-auto bg-[#FFFFFF] p-6 shadow-2xl rounded-[10px] mb-4"
+    >
+      <div>
+        <button id="all-btn" class="btn btn-primary filter-btn w-[120px] h-10">
+          All
+        </button>
+        <button id="open-btn" class="btn filter-btn w-[120px] h-10">
+          Open
+        </button>
+        <button id="closed-btn" class="btn filter-btn w-[120px] h-10">
+          Closed
+        </button>
+      </div>
     </section>
 
     <section class="container mx-auto bg-[#FFFFFF] rounded-[10px]">
-        <div class=" p-5 shadow ">
-            <div class="flex justify-between items-center">
-            <div class="flex  items-center gap-3">
-                <img src="./assets/Aperture.png" alt="">
-                <div>
-                    <h2 class="font-semibold text-[1.25rem] text-[#1F2937]">
-                        <span id="total-issues-count">50</span> Issues
-                    </h2>
-                    
-                    <p class="text-[#64748B]">Track and manage your project issues</p>
-                </div>
-            </div>
+      <div class="p-5 shadow">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-3">
+            <img src="./assets/Aperture.png" alt="" />
+            <div>
+              <h2 class="font-semibold text-[1.25rem] text-[#1F2937]">
+                <span id="total-issues-count">50</span> Issues
+              </h2>
 
-            
-            <div class="flex  items-center gap-3">
-                <img src="./assets/Open-Status.png" alt="">
-                <p class="font-medium">Open</p>
-                <img src="./assets/Closed- Status .png" alt="">
-                <p class="font-medium">Closed</p>
+              <p class="text-[#64748B]">Track and manage your project issues</p>
             </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <img src="./assets/Open-Status.png" alt="" />
+            <p class="font-medium">Open</p>
+            <img src="./assets/Closed- Status .png" alt="" />
+            <p class="font-medium">Closed</p>
+          </div>
         </div>
+      </div>
+
+      <!-- loading spinner -->
+
+      <div id="loading-spinner" class="flex justify-center items-center">
+        <div class="flex w-52 flex-col gap-4 m-3">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
         </div>
+      </div>
 
-        <!-- loading spinner -->
-
-            <div id="loading-spinner" class="flex justify-center items-center">
-                <div class="flex w-52 flex-col gap-4 m-3">
-                <div class="skeleton h-32 w-full"></div>
-                <div class="skeleton h-4 w-28"></div>
-                <div class="skeleton h-4 w-full"></div>
-                <div class="skeleton h-4 w-full"></div>
-            </div>
-            </div>
-
-        <div id="card-container" class="p-6 bg-[#FBFBFB] grid grid-cols-4 gap-4">
-
-            
-            <!-- card-container -->
-            <!-- <div class="card bg-base-100 shadow-sm p-4 border-t-4 border-[#00A96E]">
+      <div id="card-container" class="p-6 bg-[#FBFBFB] grid grid-cols-4 gap-4">
+        <!-- card-container -->
+        <!-- <div class="card bg-base-100 shadow-sm p-4 border-t-4 border-[#00A96E]">
                     <div class="flex justify-between mb-3">
                         <img class="w-6 h-6" src="./assets/Open-Status.png" alt="">
                         <span class=" bg-[#ef44441c] text-[#EF4444] px-6 py-1 rounded-[50px]">HIGH</span>
@@ -147,11 +160,78 @@
                     </div>
                     
             </div> -->
-                    
-        </div>
-
+      </div>
     </section>
 
+    <dialog id="card-details-modal" class="modal rounded-[10px]">
+      <!-- <div class="modal-box">
+          <div class="card bg-base-100 shadow-sm p-8 mx-auto">
+            <h2 class="font-bold text-[1.5rem] text-[#1F2937] mb-3">
+              Fix navigation menu on mobile devices
+            </h2>
+            <div class="flex gap-2 mb-6">
+              <div>
+                <button
+                  class="btn bg-[#00A96E] text-[#FFFFFF] rounded-[50px] focus:outline-none""
+                >
+                  Opened
+                </button>
+              </div>
+              <div class="flex gap-2">
+                <p class="text-[#64748B]">
+                  <span class="text-[#64748B] text-xl">●</span> Opened by Fahim
+                  Ahmed
+                </p>
+                <p class="text-[#64748B]">
+                  <span class="text-[#64748B] text-xl">●</span> 22/02/2026
+                </p>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <div
+                class="badge badge-soft bg-[#ef44441c] text-[#EF4444] px-4 py-3.5 font-medium"
+              >
+                <span><img class="w-3" src="./assets/Vector.png" alt="" /></span
+                >BUG
+              </div>
+
+              <div
+                class="badge badge-soft bg-[#fde68a59] text-[#D97706] px-4 py-3.5 font-medium"
+              >
+                <span
+                  ><img
+                    class="w-3"
+                    src="./assets/Vector (1).png"
+                    alt="" /></span
+                >HELP WANTED
+              </div>
+            </div>
+
+            <p class="mb-6 text-[#64748B] text-[1.25rem]">
+              The navigation menu doesn't collapse properly on mobile devices.
+              Need to fix the responsive behavior.
+            </p>
+
+            <div class="bg-[#f8fafc98] flex justify-between p-5 mb-6">
+              <div>
+                <h2 class="text-[#64748B]">Assignee:</h2>
+                <h2 class="text-[#1F2937] font-semibold">Fahim Ahmed</h2>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h2 class="text-[#64748B]">Priority:</h2>
+                <span
+                  class="bg-[#EF4444] text-[#FFFFFF] px-3 py-1 rounded-[50px] w-fit"
+                  >HIGH</span
+                >
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <button class="btn btn-primary" onclick="document.getElementById('card-details-modal').close()">Close</button>
+            </div>
+          </div>
+      </div> -->
+    </dialog>
 
     <script src="./script/issuload.js"></script>
   </body>
